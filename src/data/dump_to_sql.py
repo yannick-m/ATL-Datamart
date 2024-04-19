@@ -69,6 +69,7 @@ def main() -> None:
                      f.lower().endswith('.parquet') and os.path.isfile(os.path.join(folder_path, f))]
 
     for parquet_file in parquet_files:
+        print(os.path.join(folder_path, parquet_file))
         parquet_df: pd.DataFrame = pd.read_parquet(os.path.join(folder_path, parquet_file), engine='pyarrow')
 
         clean_column_name(parquet_df)
